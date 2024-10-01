@@ -7,10 +7,6 @@ func main() {
 	var x int
 	fmt.Scan(&x)
 
-	// if x >= 1 && x <= 100 {
-	// 	y := make([]int, x)
-	// }
-
 	y := make([]int, x)
 	for i := 0; i < x; i++ {
 		var a int
