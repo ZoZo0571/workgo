@@ -6,30 +6,17 @@ import (
 )
 
 func main() {
-
-	var x int
-	fmt.Scan(&x)
-	var y []int
-	if x >= 1 && x <= 100 {
-		y = make([]int, x)
-	} else {
+	var N, x, count int
+	fmt.Scan(&N)
+	if N < 1 || N > 100 {
 		fmt.Println("Ошибка: подано число не от 1 до 100")
 		os.Exit(1)
 	}
-
-	for i := 0; i < x; i++ {
-		var a int
-		fmt.Scan(&a)
-		y[i] = a
-
-	}
-	summ := 0
-	for _, v := range y {
-		if v > 0 {
-			summ++
+	for i := 0; i < N; i++ {
+		fmt.Scan(&x)
+		if x > 0 {
+			count++
 		}
 	}
-
-	fmt.Print(summ)
-
+	fmt.Print(count)
 }
