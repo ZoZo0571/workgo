@@ -15,8 +15,6 @@ func main() {
 
 	}
 
-	// Добавил фичу
-
 	for i := range y {
 		if i%2 == 0 {
 			fmt.Print(y[i], " ")
