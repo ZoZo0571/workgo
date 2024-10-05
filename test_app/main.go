@@ -1,5 +1,5 @@
 package main
 
 func main() {
-	task_1()
+	int_float_example()
 }
