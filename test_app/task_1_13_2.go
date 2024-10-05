@@ -17,3 +17,17 @@ func task_1_13_8() {
 	}
 	fmt.Println(x)
 }
+
+func task_1_13_9() {
+	var a, b, max7 int
+	fmt.Scan(&a, &b)
+
+	max7 = (b / 7) * 7
+
+	if max7 < a {
+		fmt.Print("NO")
+	} else {
+		fmt.Print(max7)
+	}
+
+}
