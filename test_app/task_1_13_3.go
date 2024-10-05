@@ -25,3 +25,26 @@ func task_1_13_12() {
 	}
 	fmt.Print(n, " korov", ending)
 }
+
+func task_1_13_13() {
+	var A int
+	fmt.Scanln(&A)
+	// A > 1
+	prev := 1
+	cur := 2
+	curi := 3
+	for {
+		if cur == A {
+			fmt.Println(curi)
+			break
+		} else if cur > A {
+			fmt.Println(-1)
+			break
+		}
+		cur_next := cur + prev
+		prev = cur
+		cur = cur_next
+		curi++
+	}
+
+}
