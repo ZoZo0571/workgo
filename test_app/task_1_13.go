@@ -74,28 +74,20 @@ func int_float_example() {
 }
 
 func task_1_13_7() {
-	var a, b int
-	fmt.Scan(&a)
+	var N, x, min, nmin int
+	fmt.Scan(&N)
 
-	y := make([]int, a)
+	fmt.Scan(&min)
+	nmin = 1
 
-	for i := 0; i < a; i++ {
-		fmt.Scan(&b)
-		y[i] = b
-	}
-	fmt.Println(y)
-
-	min := y[0]
-	mini := 1
-	for _, v := range y[1:] {
-		// 32 25 12 6
-		if v < min {
-			min = v
-			mini = 1
-		} else if v == min {
-			mini += 1
+	for i := 0; i < N-1; i++ {
+		fmt.Scan(&x)
+		if x < min {
+			min = x
+			nmin = 1
+		} else if x == min {
+			nmin += 1
 		}
 	}
-
-	fmt.Println(mini)
+	fmt.Println(nmin)
 }
