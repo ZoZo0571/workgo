@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func task_1_13_12() {
 	var n int
@@ -26,25 +28,45 @@ func task_1_13_12() {
 	fmt.Print(n, " korov", ending)
 }
 
+func next_fibonacci_number(current_number, previous_number, current_index int) (next_number, next_previous_number, next_index int) {
+	next_number = current_number + previous_number
+	next_previous_number = current_number
+	next_index = current_index + 1
+	return
+}
+
 func task_1_13_13() {
 	var A int
 	fmt.Scanln(&A)
 	// A > 1
-	prev := 1
-	cur := 2
-	curi := 3
+	previous_number := 1
+	current_number := 2
+	current_index := 3
 	for {
-		if cur == A {
-			fmt.Println(curi)
+		if current_number == A {
+			fmt.Println(current_index)
 			break
-		} else if cur > A {
+		} else if current_number > A {
 			fmt.Println(-1)
 			break
 		}
-		cur_next := cur + prev
-		prev = cur
-		cur = cur_next
-		curi++
+		current_number, previous_number, current_index = next_fibonacci_number(current_number, previous_number, current_index)
 	}
 
+}
+
+func task_1_13_14() {
+	var x, y, z, l int
+	fmt.Scan(&x, &y)
+	// x = 38012732
+	// y = 3
+	multiplier := 1
+	for z = 0; x > 0; x /= 10 {
+		l = x % 10
+		if l != y {
+			z = l*multiplier + z
+			multiplier *= 10
+		}
+	}
+	fmt.Println(z)
 }
