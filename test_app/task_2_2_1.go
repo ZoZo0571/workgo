@@ -1,6 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strings"
+	"unicode"
+)
 
 type manyint struct {
 	one int
@@ -54,6 +60,26 @@ func (c *Colgatle) RideBike() bool {
 	return false
 }
 
-// func main() {
-// 	testStruct := new(Colgatle)
-// }
+//	func main() {
+//		testStruct := new(Colgatle)
+//	}
+func task_2_5_1() {
+	var x string
+	x, _ = bufio.NewReader(os.Stdin).ReadString('\n')
+	// fmt.Printf("%#v\n", x)
+	x = strings.Trim(x, "\r\n")
+	rs := []rune(x)
+	// fmt.Printf("%v\n%#v\n", rs, x)
+	// fmt.Println(unicode.IsUpper(rs[0]))
+	b := len(rs)
+
+	// firstLetterIsBig := unicode.IsUpper(rs[0])
+	// lastLetterIsTochka := rs[b-1] == rune('.')
+
+	// if firstLetterIsBig && lastLetterIsTochka  {
+	if unicode.IsUpper(rs[0]) && rs[b-1] == rune('.') {
+		fmt.Println("Right")
+	} else {
+		fmt.Println("Wrong")
+	}
+}

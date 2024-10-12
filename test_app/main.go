@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func main() {
-	testStruct := new(Colgatle)
+	task_2_5_1()
 }
