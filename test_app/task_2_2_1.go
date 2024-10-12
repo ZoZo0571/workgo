@@ -26,3 +26,34 @@ func main1() {
 	zero2(x)
 	fmt.Printf("%v\n", x)
 }
+
+type Colgatle struct {
+	On          bool
+	Ammo, Power int
+}
+
+func (c *Colgatle) Shoot() bool {
+	if c.On == false {
+		return false
+	}
+	if c.Ammo > 0 {
+		c.Ammo--
+		return true
+	}
+	return false
+}
+
+func (c *Colgatle) RideBike() bool {
+	if c.On == false {
+		return false
+	}
+	if c.Power > 0 {
+		c.Power--
+		return true
+	}
+	return false
+}
+
+// func main() {
+// 	testStruct := new(Colgatle)
+// }
