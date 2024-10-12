@@ -83,3 +83,33 @@ func task_2_5_1() {
 		fmt.Println("Wrong")
 	}
 }
+
+func task_2_5_2() {
+	var x string
+	fmt.Scan(&x)
+	rs := []rune(x)
+	lenRs := len(rs)
+	// iOut := lenRs - 1
+	// for iIn, _ := range rs {
+	// 	if rs[iIn] == rs[iOut] {
+	// 		iIn += 1
+	// 		iOut -= 1
+	// 	} else {
+	// 		fmt.Println("Нет")
+	// 		break
+	// 	}
+	// 	if iIn >= iOut {
+	// 		fmt.Println("Палиндром")
+	// 		break
+	// 	}
+	// }
+	for i := 0; i < lenRs/2; i++ {
+		leftSymbol := rs[i]
+		rightSymbol := rs[lenRs-i-1]
+		if leftSymbol != rightSymbol {
+			fmt.Print("Нет")
+			return
+		}
+	}
+	fmt.Print("Палиндром")
+}
