@@ -113,3 +113,39 @@ func task_2_5_2() {
 	}
 	fmt.Print("Палиндром")
 }
+
+func task_2_5_3() {
+	var X, S string
+	fmt.Scan(&X, &S)
+	rX := []rune(X)
+	rS := []rune(S)
+	lenrX := len(X)
+	// lenrS := len(S)
+	noMatches := true
+	for i := 0; i < lenrX; i++ {
+
+		allMathched := true
+		for j, elemS := range rS {
+			z := i + j
+			if z < lenrX {
+				elemX := rX[i+j]
+				if elemS != elemX {
+					allMathched = false
+					break
+				}
+			} else {
+				allMathched = false
+				break
+			}
+		}
+		if allMathched {
+			noMatches = false
+			fmt.Print(i)
+			break
+		}
+	}
+	if noMatches {
+		fmt.Print(-1)
+	}
+
+}
