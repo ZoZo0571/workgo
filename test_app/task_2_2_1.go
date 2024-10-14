@@ -149,3 +149,16 @@ func task_2_5_3() {
 	}
 
 }
+
+func task_2_5_4() {
+	var S1, S2 string
+	fmt.Scan(&S1)
+	rS1 := []rune(S1)
+	for i, _ := range rS1 {
+		if i%2 != 0 {
+			S2 += string(rS1[i])
+		}
+
+	}
+	fmt.Print(S2)
+}
