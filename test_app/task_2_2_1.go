@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+
 	"os"
 	"strings"
 	"unicode"
@@ -161,4 +162,38 @@ func task_2_5_4() {
 
 	}
 	fmt.Print(S2)
+}
+
+func task_2_5_5() {
+	// var S, S2 string
+	// fmt.Scan(&S)
+	// lenS := len(S)
+	// rS := []rune(S)
+	// rS2 := []rune(S2)
+	// j := 0
+	// // for i, valueS := range rS {
+	// // 	valueS2 := rS2[i-1]
+	// // 	if valueS != valueS2 {
+
+	// // 		S2 += string(rS2[i])
+	// // 	}
+
+	// // }
+	// // fmt.Println(S2)
+	// for i := 0; i < lenS; i++ {
+	// 	if rS[i] != rS[i+1] {
+	// 		rS2[j] += rS[i]
+	// 		S2 += string(rS[i])
+	// 	}
+	// }
+	var x string
+	fmt.Scan(&x)
+	rn := []rune(x)
+	for _, value := range rn {
+		y := strings.Count(x, string(value))
+		if y > 1 {
+			x = strings.Replace(x, string(value), "", -1)
+		}
+	}
+	fmt.Println(x)
 }
