@@ -1,5 +1,5 @@
 package main
 
 func main() {
-	task_2_5_5()
+	task_2_5_6()
 }

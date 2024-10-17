@@ -197,3 +197,25 @@ func task_2_5_5() {
 	}
 	fmt.Println(x)
 }
+
+func task_2_5_6() {
+	var S string
+	// fmt.Scan(&S)
+	// S = "fdsghdfgjsdDD1"
+	S = "$%^724nsjjsd8^"
+	// S = "$%^7"
+	// rS := []rune(S)
+	lenS := len(S)
+	if lenS < 5 {
+		fmt.Print("Wrong password")
+		return
+	}
+	for _, value := range S {
+		if !(unicode.IsDigit(value) || unicode.Is(unicode.Latin, value)) {
+			fmt.Print("Wrong password")
+			return
+		}
+	}
+	fmt.Print("Ok")
+
+}
