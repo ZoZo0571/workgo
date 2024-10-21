@@ -224,9 +224,7 @@ func task_2_5_6() {
 func task_2_6_1() {
 	var a, b int
 	fmt.Scan(&a, &b)
-	var c int
-	var err error
-	c, err = divide(a, b)
+	c, err := divide(a, b)
 	if err != nil {
 		fmt.Println("Ошибка")
 	} else {
@@ -234,14 +232,6 @@ func task_2_6_1() {
 	}
 
 }
-
-// func divide() int {
-// 	var a, b int
-// 	fmt.Scan(&a, &b)
-// 	Input := a / b
-// 	return Input
-
-// }
 
 func divide(a int, b int) (int, error) {
 	if b == 0 {
