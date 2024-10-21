@@ -2,8 +2,9 @@ package main
 
 import (
 	"bufio"
+	"errors"
+	// "errors"
 	"fmt"
-
 	"os"
 	"strings"
 	"unicode"
@@ -218,4 +219,33 @@ func task_2_5_6() {
 	}
 	fmt.Print("Ok")
 
+}
+
+func task_2_6_1() {
+	var a, b int
+	fmt.Scan(&a, &b)
+	var c int
+	var err error
+	c, err = divide(a, b)
+	if err != nil {
+		fmt.Println("Ошибка")
+	} else {
+		fmt.Println(c)
+	}
+
+}
+
+// func divide() int {
+// 	var a, b int
+// 	fmt.Scan(&a, &b)
+// 	Input := a / b
+// 	return Input
+
+// }
+
+func divide(a int, b int) (int, error) {
+	if b == 0 {
+		return 0, errors.New("")
+	}
+	return a / b, nil
 }
