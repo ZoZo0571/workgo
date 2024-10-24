@@ -37,3 +37,38 @@ func task_2_7_3() {
 	}
 	fmt.Print(string(max))
 }
+
+func task_2_7_4() {
+	var number, digit int
+	var result string
+	fmt.Scanf("%d\n", &number) //"%d\n" для вывода целых чисел в десятичной системе
+	for number > 0 {           // если цисло больше нуля то выполняем цикл
+		digit = number % 10                       // цифре присвоить значение остаток от деления на 10
+		number = int(number / 10)                 // числу присвоить целое значение и поделить на 10
+		result = fmt.Sprint(digit*digit) + result // конечный итог печать cтроки плюс то, что у нас уже есть в результате
+	}
+	fmt.Print(result)
+}
+
+func task_2_7_5() {
+	T()
+}
+func M() float64 {
+	var p, v float64
+	fmt.Scanln(&p, &v)
+	return p * v
+}
+
+func W() float64 {
+	m := M()
+	var k float64
+	fmt.Scanln(&k)
+	w := math.Sqrt(k / m)
+	return w
+}
+
+func T() float64 {
+	w := W()
+	t := 6 / w
+	return t
+}
