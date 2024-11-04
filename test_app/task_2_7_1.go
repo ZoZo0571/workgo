@@ -205,3 +205,34 @@ func task_3_21() {
 	num3 := num1 / num2
 	fmt.Printf("%.4f", num3)
 }
+
+func task_3_3() {
+	x := func(fn func(i int) int, i int) func(int) int { return fn }(func(i int) int { return i + 1 }, 5)
+	fmt.Printf("%T", x)
+}
+
+func task_3_4() {
+
+	fn := func(a uint) uint {
+
+		b := strconv.FormatUint(uint64(a), 10)
+		news := ""
+		for _, value := range b {
+			// y, _ := strconv.Atoi(string([]rune{value}))
+			y := int(value) - 48
+			if y%2 == 0 && y != 0 {
+				z := strconv.Itoa(y)
+				news += z
+			}
+		}
+		var q uint64
+		if len(news) == 0 {
+			q = 100
+		} else {
+			q, _ = strconv.ParseUint(news, 10, 64)
+		}
+		return uint(q)
+	}
+
+	fmt.Print(fn(727178))
+}
