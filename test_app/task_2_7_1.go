@@ -236,3 +236,16 @@ func task_3_4() {
 
 	fmt.Print(fn(727178))
 }
+
+// var a, b, c interface{}
+// //a , b, c = readTask()
+
+// if a, ok := i.(int); !ok {
+
+// }
+// switch value1.(type) {
+// case float64:
+// 	v1 := value1
+// default:
+
+// }
