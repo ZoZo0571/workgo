@@ -6,7 +6,7 @@ package main
 // )
 
 func main() {
-	task_3_4()
+	task_3_5()
 
 }
 

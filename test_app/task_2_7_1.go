@@ -249,3 +249,43 @@ func task_3_4() {
 // default:
 
 // }
+func task_3_5() {
+
+	// reader := bufio.NewReader(os.Stdin)  // Создаем новый Reader для чтения из стандартного ввода
+	// writer := bufio.NewWriter(os.Stdout) // Создаем новый Writer для записи в стандартный вывод
+	// defer writer.Flush()                 // Отложенный вызов Flush для записи всех данных в stdout
+
+	// sum := 0 // Переменная для хранения суммы
+
+	// for {
+	// 	line, err := reader.ReadString('\n') // Читаем строку до символа новой строки
+	// 	if err != nil {
+	// 		if err == io.EOF { // Проверяем конец файла
+	// 			break // Выходим из цикла, если достигнут конец ввода
+	// 		}
+	// 		fmt.Println("Ошибка чтения:", err) // Обрабатываем другие ошибки
+	// 		return
+	// 	}
+
+	// 	num, convErr := strconv.Atoi(line[:len(line)-1]) // Преобразуем строку в целое число, убирая символ новой строки
+	// 	if convErr != nil {
+	// 		fmt.Println("Ошибка преобразования:", convErr) // Обрабатываем ошибку преобразования
+	// 		continue                                       // Переходим к следующей итерации цикла
+	// 	}
+
+	// 	sum += num // Добавляем число к сумме
+	// }
+
+	// fmt.Println(sum) // Выводим итоговую сумму
+
+	var sum int
+	scanner := bufio.NewScanner(os.Stdin) // возращаем NewScanner returns a new Scanner to read from r. The split function defaults to ScanLines.
+
+	for scanner.Scan() {
+		s := scanner.Text()          // сканируем введенный текст в os.stdin
+		number, _ := strconv.Atoi(s) // прееводим строки в числа
+		sum += number
+	}
+
+	os.Stdout.WriteString(strconv.Itoa(sum)) // выводим файл выхода иизаписываем его встроку сразу с преводом из числа в строчку
+}
