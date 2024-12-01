@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"encoding/csv"
 	"fmt"
 	"os"
@@ -77,20 +78,56 @@ func task_3_5_1() {
 
 }
 
-// func task_3_5_1_test() {
-// 	filePath := "./task/task/dir5/dir5/dir5/dir4/dir5/file1.txt" // начальная директория
-// 	//filePath := "./task/csv.txt"
-// 	file, err := os.Open(filePath)
-// 	if err != nil {
-// 		fmt.Println("Ошибка открытия файла:", file, err)
-// 	}
-// 	defer file.Close()
+func task_3_5_1_test() {
+	filePath := "./task/task/dir5/dir5/dir5/dir4/dir5/file1.txt" // начальная директория
+	//filePath := "./task/csv.txt"
+	file, err := os.Open(filePath)
+	if err != nil {
+		fmt.Println("Ошибка открытия файла:", file, err)
+	}
+	defer file.Close()
 
-// 	reader := csv.NewReader(file)
-// 	fmt.Println("Читаем файл", filePath)
-// 	data, err := reader.ReadAll() // Читаем первое поле
-// 	fmt.Println("Результат reader.Read():", data, err)
-// 	//data, err = reader.Readall() // Читаем следующее полу
-// 	//fmt.Println("Результат reader.Read():", data, err)
+	reader := csv.NewReader(file)
+	fmt.Println("Читаем файл", filePath)
+	data, err := reader.ReadAll() // Читаем первое поле
+	fmt.Println("Результат reader.Read():", data, err)
+	//data, err = reader.Readall() // Читаем следующее полу
+	//fmt.Println("Результат reader.Read():", data, err)
 
-// }
+}
+
+func task_3_5_2() {
+	file, err := os.Open("task.data")
+	if err != nil {
+		panic(err)
+	}
+	defer file.Close()
+
+	// Создание нового буферизованного читателя
+	reader := bufio.NewReader(file)
+	sum := 1
+	for {
+
+		// Чтение строки до символа новой строки
+		line, err := reader.ReadString(';')
+		if line != "0;" {
+
+			sum++
+
+		} else if line == "0;" {
+
+			break
+		}
+
+		if err != nil {
+			if err.Error() != "EOF" {
+				fmt.Println("Error reading file:", err)
+			}
+			break
+		}
+
+		// Обработка строки
+
+	}
+	fmt.Print(sum)
+}
