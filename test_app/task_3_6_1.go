@@ -53,3 +53,32 @@ func task_3_6_1() {
 	fmt.Printf("%s", res)
 
 }
+
+type My struct {
+	GlobalId int `json:"global_id"`
+}
+
+func task_3_6_2() {
+	sl := make([]My, 0)
+	inputFile, err := os.Open("data2.json")
+	if err != nil {
+		fmt.Println("Error opening JSON file:", err)
+		return
+	}
+	defer inputFile.Close()
+
+	byteValue, err := io.ReadAll(inputFile)
+	if err != nil {
+		fmt.Println("Error reading JSON file:", err)
+		return
+	}
+	_ = json.Unmarshal(byteValue, &sl)
+
+	sum := 0
+
+	for _, value := range sl {
+		sum += value.GlobalId
+
+	}
+	fmt.Println(sum)
+}
