@@ -75,3 +75,30 @@ func task_3_7_3() {
 	// Вывод продолжительности периода в формате, указанном в задании
 	fmt.Println(duration)
 }
+
+func task_3_7_4() {
+	const now = 1589570165
+
+	sec := time.Unix(now, 0)
+	//fmt.Print(sec)
+
+	// Создание сканера для чтения стандартного ввода
+	scanner := bufio.NewScanner(os.Stdin)
+	scanner.Scan()
+	input := scanner.Text()
+
+	// Разделение входной строки на две даты
+	dates := strings.Split(input, " ")
+	// for _, v := range dates {
+	// 	fmt.Println(v)
+	// }
+	// fmt.Print(dates)
+
+	// Парсинг первой даты
+	time1, _ := time.ParseDuration(fmt.Sprintf("%sm%ss", dates[0], dates[2]))
+	//fmt.Println(time1)
+
+	resTime := sec.Add(time1).UTC()
+
+	fmt.Println(resTime.Format(time.UnixDate))
+}
