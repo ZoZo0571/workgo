@@ -1,11 +1,10 @@
 package main
 
-import (
-	"fmt"
-	"runtime"
-)
+//"runtime"
+//import "fmt"
 
 func main() {
-	// task_3_7_4()
-	fmt.Println(runtime.NumCPU())
+	M1()
+	//()
+	//fmt.Println(runtime.NumCPU())
 }
